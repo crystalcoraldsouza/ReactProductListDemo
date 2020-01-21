@@ -1,6 +1,9 @@
-import React from 'react';
-import { render } from 'react-dom';
-
-const rootElement = document.getElementById('react-app');
-
-render(<div> Hello World! Love Crissy! </div>, rootElement);
+<html>
+    <head>
+      <title>React Product List Demo</title>
+    </head>
+    <body>
+      <!-- We will insert the dom here -->
+      <div id="root" />
+    </body>
+  </html>
