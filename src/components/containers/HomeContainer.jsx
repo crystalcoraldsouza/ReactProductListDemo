@@ -3,20 +3,21 @@ import HomeLayout from '../layouts/HomeLayout'
 import { connect } from 'react-redux'
 import { updateFavouriteProduct } from '../homeContainer/actions'
 class HomeContainer extends Component {
-    render() {
-      console.log('props', this.props)
-      return(
+  render () {
+    console.log('props', this.props)
+    return (
       <HomeLayout
         favouriteProducts={this.props.favouriteProducts}
         updateFavouriteProduct={this.props.updateFavouriteProduct}
       />
-      )
-    }
+    )
+  }
 }
 
 function mapStateToProps (state) {
+  console.log('---> state', state)
   return {
-    favouriteProducts: state.favouriteProducts
+    favouriteProducts: state.homeContainerReducer.favouriteProducts
   }
 }
 
@@ -27,6 +28,5 @@ function mapDispatchToProps (dispatch) {
     }
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)

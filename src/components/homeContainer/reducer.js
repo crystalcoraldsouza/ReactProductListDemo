@@ -1,19 +1,19 @@
 import { UPDATE_FAVOURITE_PRODUCT } from './actionTypes'
 
-
 const initialState = {
-    favouriteProducts: []
+  favouriteProducts: []
 }
 
-export function homeContainerReducer(state = initialState, action = {}) {
-    console.log('reducer', action)
-    switch(action.type) {
-        case UPDATE_FAVOURITE_PRODUCT:
-            return Object.assign({}, state, {
-                favouriteProducts: action.payload
-            })
-        default:
-            return state
-    }
+export function homeContainerReducer (state = initialState, action = {}) {
+  console.log('reducer', action)
+  switch (action.type) {
+    case UPDATE_FAVOURITE_PRODUCT:
+      let something = Object.assign({}, state, {
+        favouriteProducts: action.payload
+      })
+      console.log('SOMETHING', something)
+      return something
+    default:
+      return state
+  }
 }
-
