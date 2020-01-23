@@ -48,7 +48,13 @@ class HomeLayout extends Component {
     )
   }
   renderPage () {
-    return (this.state.selectedProduct ? <ProductDetails product={this.state.selectedProduct} /> : this.renderProductListings())
+    const { favouriteProducts, updateFavouriteProduct } = this.props
+    return (this.state.selectedProduct ?
+    <ProductDetails
+      product={this.state.selectedProduct}
+      favouriteProducts={favouriteProducts}
+      updateFavouriteProduct={updateFavouriteProduct}
+      updateSelectedProduct={this.updateSelectedProduct} /> : this.renderProductListings())
   }
   render () {
     return (

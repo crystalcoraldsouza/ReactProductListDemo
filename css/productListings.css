@@ -33,14 +33,23 @@
 }
 
 .product-division {
-    margin-top: 240px;
+    margin-top: 225px;
 }
 
-.product-details {
-
+.product-description {
+    width: 80%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .arrow-icon {
     padding-top: 3px;
     float: right;
     width: 20%;
+}
+.product-details {
+    align-items: flex-end;
+}
+.max-height {
+    max-height: 360px;
 }

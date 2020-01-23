@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductCard from './ProductCard'
+
 class ProductList extends Component {
   render () {
     const { favouriteProducts, updateFavouriteProduct, updateSelectedProduct } = this.props
