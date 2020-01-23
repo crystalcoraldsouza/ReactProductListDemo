@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { updateFavouriteProduct } from '../homeContainer/actions'
 class HomeContainer extends Component {
   render () {
-    console.log('props', this.props)
     return (
       <HomeLayout
         favouriteProducts={this.props.favouriteProducts}
@@ -15,7 +14,6 @@ class HomeContainer extends Component {
 }
 
 function mapStateToProps (state) {
-  console.log('---> state', state)
   return {
     favouriteProducts: state.homeContainerReducer.favouriteProducts
   }

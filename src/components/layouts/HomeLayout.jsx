@@ -4,6 +4,7 @@ import ProductDetails from '../product/ProductDetails'
 import autoBind from 'auto-bind'
 import data from '../../../sample-product.json'
 import fetchMock from 'fetch-mock'
+
 class HomeLayout extends Component {
   constructor (props) {
     super()
@@ -14,19 +15,21 @@ class HomeLayout extends Component {
     }
     autoBind(this)
   }
+
   componentDidMount () {
     fetchMock.get('http://product-data.com/', data, {delay: 2000 }) // mocked delay
     fetch('http://product-data.com')
         .then(response => response.json()) // receives a promise
         .then(data => {
-            // console.log('2nd resp', data.items)
           this.setState({products: data.items, showSpinner: false})
         })
         .catch(error => console.log('Error', error))
   }
+
   updateSelectedProduct (selectedProduct) {
     this.setState({selectedProduct})
   }
+
   renderProductListings () {
     const { favouriteProducts, updateFavouriteProduct } = this.props
     const { products } = this.state
@@ -47,6 +50,7 @@ class HomeLayout extends Component {
       </div>
     )
   }
+
   renderPage () {
     const { favouriteProducts, updateFavouriteProduct } = this.props
     return (this.state.selectedProduct ?
@@ -56,10 +60,11 @@ class HomeLayout extends Component {
       updateFavouriteProduct={updateFavouriteProduct}
       updateSelectedProduct={this.updateSelectedProduct} /> : this.renderProductListings())
   }
+
   render () {
     return (
       <div className='main-layout'>
-        {this.state.showSpinner ? <div>Loading...</div> : this.renderPage()}
+        {this.state.showSpinner ? <div className='center'><i className='fas fa-spinner fa-spin font-size-50'></i></div> : this.renderPage()}
       </div>
     )
   }
